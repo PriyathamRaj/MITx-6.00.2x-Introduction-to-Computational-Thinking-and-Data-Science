@@ -62,10 +62,13 @@ def powerset(L):
     
 def bin_set(L):
 	combos = []
-	for i in range(2**len(L)):
-		binary = bin(i)
+	for item in L:
+		binary = bin(item)
 		arr = binary[2:]
-		if len(arr) < 
+		if len(arr) < len(L):
+			arr = [0]*(len(L) - len(arr)) + arr
+		combos.append(np.array(arr))
+	return combos
     
     
     
